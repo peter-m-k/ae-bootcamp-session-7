@@ -8,7 +8,9 @@
 
 ## Service Context
 
-<!-- Copilot: summarize what the todo-service is and how it will be hosted (from docs/project-overview.md) -->
+The todo-service is a simple full-stack task management app: a React SPA frontend (port 3000/80) talking over HTTP/REST to a Node.js 20 + Express 4 backend (port 4000) exposing `/api/todos` CRUD routes and a `/health` check, backed by an in-memory store. It's the baseline application for this Platform Engineering golden-path lab — the app itself isn't modified; the focus is paving the infrastructure, CI/CD, and observability around it.
+
+It will be hosted on **AWS ECS Fargate**: both the frontend and backend are containerized (see their respective `Dockerfile`s) and run as a two-container ECS task behind an Application Load Balancer, with logs and metrics collected via CloudWatch Logs and Container Insights. All of this is provisioned by the Slalom PE Lab ECS App golden-path Terraform module described below.
 
 ---
 
