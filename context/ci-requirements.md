@@ -8,7 +8,7 @@
 
 ## Service Context
 
-<!-- Copilot: summarize the tech stack (Node.js version, test framework, IaC tool) that CI must validate (from docs/project-overview.md) -->
+CI must validate a Node.js 20 + Express 4 backend and a React 18 frontend, managed together via npm workspaces, with Jest as the test framework (coverage gate enforced). It must also validate the Terraform >= 1.5 IaC (AWS provider ~> 5.0) in `infra/stacks/dev`, and build the Docker images defined for both packages ahead of deployment to ECS Fargate.
 
 ## Reusable Workflow (`golden-path-ci.yml`)
 
